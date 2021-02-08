@@ -10,4 +10,12 @@ public class task {
         this.name = name;
         this.due = due;
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public Date getDue() {
+        return this.due;
+    }
 }
