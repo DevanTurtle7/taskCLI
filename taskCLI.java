@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class main {
+public class taskCLI {
     private static boolean exit = false;
 
     public static void main(String args[]) {
@@ -11,5 +11,7 @@ public class main {
             String line = input.nextLine();
             System.out.println("The user entered: " + line);
         }
+
+        input.close();
     }
 }
