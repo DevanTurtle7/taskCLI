@@ -1,17 +1,16 @@
-import java.util.Scanner;
+/**
+ * This file makes it easier for the user to start this program from the
+ * command line. They can simply enter "java taskCLI" instead of having
+ * to call a file in another directory. This file simply calls another
+ * file.
+ * 
+ * @author Devan Kavalchek
+ */
+
+import src._main; // Import the main file
 
 public class taskCLI {
-    private static boolean exit = false;
-
-    public static void main(String args[]) {
-        Scanner input = new Scanner(System.in);
-
-        while (!exit) {
-            System.out.print(": ");
-            String line = input.nextLine();
-            System.out.println("The user entered: " + line);
-        }
-
-        input.close();
+    public static void main(String[] args) {
+        _main.main(args); // Run the program
     }
 }
