@@ -7,9 +7,9 @@ public class inputHandler {
      */
     public static void handleInput(String input) {
         String[] tokens = input.split(" ");
-        int numParameters = tokens.length;
+        int numArguments = tokens.length;
 
-        if (numParameters == 1) {
+        if (numArguments == 1) {
             String command = tokens[0].toLowerCase();
 
             if (command.equals("exit") || command.equals("quit")) {
