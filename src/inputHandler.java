@@ -6,10 +6,15 @@ public class inputHandler {
      * @param input The text entered by the user
      */
     public static void handleInput(String input) {
-        input = input.toLowerCase(); // Convert the input to lowercase
+        String[] tokens = input.split(" ");
+        int numParameters = tokens.length;
 
-        if (input.equals("exit") || input.equals("quit")) {
-            _main.exitProgram(); // Exit the program
+        if (numParameters == 1) {
+            String command = tokens[0].toLowerCase();
+
+            if (command.equals("exit") || command.equals("quit")) {
+                _main.exitProgram();
+            }
         }
     }
 }
