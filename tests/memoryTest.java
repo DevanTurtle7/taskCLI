@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
@@ -19,6 +20,9 @@ public class memoryTest {
     @Test
     public void testWriteMemory() {
         // Setup
+        memoryManager.enableDebugMode(path);
+        memoryManager.clearMemory();
+
         String name = "Task 1";
         LocalDateTime date = LocalDateTime.of(2020, 12, 3, 4, 5);
         Task task = new Task(name, date);
@@ -27,7 +31,6 @@ public class memoryTest {
         String expectedLine = "Task 1,2020-12-03T04:05";
 
         memoryManager.addTask(task);
-        memoryManager.enableDebugMode(path);
 
         // Invoke
         memoryManager.writeMemory();
@@ -47,5 +50,30 @@ public class memoryTest {
         } catch (IOException e) {
             assert(false);
         }
+    }
+
+    @Test
+    public void testReadMemory() {
+        // Setup
+        memoryManager.enableDebugMode(path);
+        String name = "Task Name";
+        LocalDateTime date = LocalDateTime.of(2002, 3, 18, 13, 45);
+        Task expectedTask = new Task(name, date);
+
+        try {
+            FileWriter fileWriter = new FileWriter(path + "tests/testMemory.csv");
+            fileWriter.write("Name,Date\n");
+            fileWriter.write(name + ",2002-03-18T13:45\n");
+            fileWriter.close();
+        } catch (IOException e) {
+            assert(false);
+        }
+
+        // Invoke
+        memoryManager.readMemory();
+        Task task = memoryManager.memory[0];
+
+        // Analyze
+        assertEquals(expectedTask, task);
     }
 }

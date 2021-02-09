@@ -1,14 +1,18 @@
 package memory;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.Arrays;
 
 import src._main;
 import src.Task;
 
 public class memoryManager {
 
-    private static Task[] memory = new Task[100]; // An array where tasks are stored
+    public static Task[] memory = new Task[100]; // An array where tasks are stored
     private static String filename = "memory/memory.csv";
 
     /**
@@ -35,8 +39,42 @@ public class memoryManager {
     }
 
     public static void readMemory() {
+        try {
+            FileReader fileReader = new FileReader(filename);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line = bufferedReader.readLine();
+            Arrays.fill(memory, null);
+            int memoryPointer = 0;
 
+            line = bufferedReader.readLine(); // Move to the next line (skip the header)
+            while (line != null) {
+                String[] tokens = line.split(",");
+                String name = tokens[0];
+                String dateStr = tokens[1];
+                LocalDateTime date = LocalDateTime.parse(dateStr);
+                Task task = new Task(name, date);
+
+                if (memoryPointer < memory.length) {
+                    memory[memoryPointer] = task;
+                } else {
+                    System.out.println("Memory file exceeds memory size");
+                    break;
+                }
+
+                line = bufferedReader.readLine();
+            }
+
+            bufferedReader.close();
+            fileReader.close();
+        } catch (IOException e) {
+            System.out.println("Error reading memory");
+        }
     };
+
+    public static void clearMemory() {
+        Arrays.fill(memory, null);
+        writeMemory();
+    }
 
     /**
      * Adds a task to taskMemory
