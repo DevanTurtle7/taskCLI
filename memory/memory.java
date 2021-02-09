@@ -2,7 +2,6 @@ package memory;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
 
 import src._main;
 import src.Task;
@@ -21,7 +20,7 @@ public class memory {
 
             for (Task task : taskMemory) { // Iterate over each task in the memory
                 if (task != null) { // Make sure the current task exists
-                    fileWriter.write(task.getName() + "," + task.getDue().toString() + "\n"); // Write the data
+                    fileWriter.write(task.getName() + "," + task.getDate().toString() + "\n"); // Write the data
                 }
             }
 

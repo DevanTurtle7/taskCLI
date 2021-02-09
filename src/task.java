@@ -4,18 +4,18 @@ import java.time.LocalDate;
 
 public class Task {
     private String name;
-    private LocalDate due;
+    private LocalDate date;
 
-    public Task(String name, LocalDate due) {
+    public Task(String name, LocalDate date) {
         this.name = name;
-        this.due = due;
+        this.date = date;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public LocalDate getDue() {
-        return this.due;
+    public LocalDate getDate() {
+        return this.date;
     }
 }
