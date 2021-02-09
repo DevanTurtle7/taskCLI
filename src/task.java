@@ -1,12 +1,12 @@
 package src;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Task {
     private String name;
-    private LocalDate date;
+    private LocalDateTime date;
 
-    public Task(String name, LocalDate date) {
+    public Task(String name, LocalDateTime date) {
         this.name = name;
         this.date = date;
     }
@@ -15,7 +15,7 @@ public class Task {
         return this.name;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return this.date;
     }
 }
