@@ -23,3 +23,4 @@
 hs_err_pid*
 
 memory/memory.csv
+tests/absolutePath.java

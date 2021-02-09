@@ -30,6 +30,7 @@ public class memoryManager {
         } catch (IOException e) {
             // The memory.csv file cannot be read
             System.out.println("An error occurred");
+            System.out.println(e);
             _main.exitProgram();
         }
     }
@@ -70,6 +71,6 @@ public class memoryManager {
 
     public static void enableDebugMode() {
         debugMode = true;
-        filename = "tests/testMemory.csv";
+        filename = "bruh/bruhMem.csv";
     }
 }
