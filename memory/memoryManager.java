@@ -8,14 +8,16 @@ import src.Task;
 
 public class memoryManager {
 
-    public static Task[] memory = new Task[100]; // An array where tasks are stored
+    private static Task[] memory = new Task[100]; // An array where tasks are stored
+    private static String filename = "memory/memory.csv";
+    private static boolean debugMode = false;
 
     /**
      * Saves all of the tasks in memory to memory.csv
      */
     public static void writeMemory() {
         try {
-            FileWriter fileWriter = new FileWriter("memory/memory.csv"); // Create a new file writer
+            FileWriter fileWriter = new FileWriter(filename); // Create a new file writer
             fileWriter.write("Name,Date\n"); // Write the header
 
             for (Task task : memory) { // Iterate over each task in the memory
@@ -64,5 +66,10 @@ public class memoryManager {
 
     public static void removeTask() {
 
+    }
+
+    public void enableDebugMode() {
+        debugMode = true;
+        filename = "tests/testMemory.csv";
     }
 }
