@@ -6,9 +6,9 @@ import java.io.IOException;
 import src._main;
 import src.Task;
 
-public class memory {
+public class memoryManager {
 
-    public static Task[] taskMemory = new Task[100]; // An array where tasks are stored
+    public static Task[] memory = new Task[100]; // An array where tasks are stored
 
     /**
      * Saves all of the tasks in taskMemory to memory.csv
@@ -18,7 +18,7 @@ public class memory {
             FileWriter fileWriter = new FileWriter("memory/memory.csv"); // Create a new file writer
             fileWriter.write("Name,Date\n"); // Write the header
 
-            for (Task task : taskMemory) { // Iterate over each task in the memory
+            for (Task task : memory) { // Iterate over each task in the memory
                 if (task != null) { // Make sure the current task exists
                     fileWriter.write(task.getName() + "," + task.getDate().toString() + "\n"); // Write the data
                 }
@@ -44,13 +44,13 @@ public class memory {
         // Initialize loop variables
         boolean indexFound = false;
         int i = 0;
-        int memorySize = taskMemory.length;
+        int memorySize = memory.length;
 
         while (!indexFound && i < memorySize) { // Loop until an index is found or the entire array has been checked
-            Task index = taskMemory[i]; // Get the current task
+            Task index = memory[i]; // Get the current task
 
             if (index == null) { // Check if the index is empty
-                taskMemory[i] = task; // Put the task in the empty index
+                memory[i] = task; // Put the task in the empty index
                 indexFound = true; // Mark indexFound as true
             }
 
