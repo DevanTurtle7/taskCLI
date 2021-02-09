@@ -22,4 +22,18 @@ public class taskTest {
         assertEquals(name, task.getName());
         assertEquals(date, task.getDate());
     }
+
+    @Test
+    public void testCreateAnotherTask() {
+        // Setup
+        String name = "Homework Assignment #2";
+        LocalDate date = LocalDate.of(1992, 9, 20);
+
+        // Invoke
+        Task task = new Task(name, date);
+
+        // Analyze
+        assertEquals(name, task.getName());
+        assertEquals(date, task.getDate());
+    }
 }
