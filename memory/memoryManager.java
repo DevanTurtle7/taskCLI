@@ -68,7 +68,7 @@ public class memoryManager {
 
     }
 
-    public void enableDebugMode() {
+    public static void enableDebugMode() {
         debugMode = true;
         filename = "tests/testMemory.csv";
     }
