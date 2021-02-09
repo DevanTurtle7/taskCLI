@@ -11,7 +11,7 @@ public class memoryManager {
     public static Task[] memory = new Task[100]; // An array where tasks are stored
 
     /**
-     * Saves all of the tasks in taskMemory to memory.csv
+     * Saves all of the tasks in memory to memory.csv
      */
     public static void writeMemory() {
         try {

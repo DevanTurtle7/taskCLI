@@ -2,7 +2,7 @@ package src;
 
 import java.time.LocalDateTime;
 
-import memory.memory;
+import memory.memoryManager;
 
 public class inputHandler {
     /**
@@ -19,12 +19,12 @@ public class inputHandler {
             if (command.equals("exit") || command.equals("quit")) {
                 _main.exitProgram(); // Exit the program
             } else if (command.equals("save")) {
-                memory.writeMemory();
+                memoryManager.writeMemory();
             } else if (command.equals("c")) {
                 LocalDateTime date = LocalDateTime.now();
                 Task task = new Task("Test", date);
-                memory.addTask(task);
-                memory.writeMemory();
+                memoryManager.addTask(task);
+                memoryManager.writeMemory();
             }
         }
     }

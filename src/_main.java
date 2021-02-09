@@ -1,7 +1,7 @@
 package src;
 
 import java.util.Scanner;
-import memory.memory;
+import memory.memoryManager;
 
 public class _main {
     private static boolean exit = false; // Tells the program when to end
@@ -12,7 +12,7 @@ public class _main {
      */
     public static void main(String args[]) {
         // Load data
-        memory.readMemory();
+        memoryManager.readMemory();
 
         // Print welcome message
 
