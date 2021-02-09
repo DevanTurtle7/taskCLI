@@ -1,7 +1,6 @@
 package src;
 
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.time.LocalDate;
 
 import memory.memory;
 
@@ -22,7 +21,7 @@ public class inputHandler {
             } else if (command.equals("save")) {
                 memory.writeMemory();
             } else if (command.equals("c")) {
-                Date date = new Date(System.currentTimeMillis());
+                LocalDate date = LocalDate.now();
                 Task task = new Task("Test", date);
                 memory.addTask(task);
                 memory.writeMemory();
