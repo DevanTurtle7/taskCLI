@@ -2,11 +2,11 @@ package src;
 
 import java.util.Date;
 
-public class task {
+public class Task {
     private String name;
     private Date due;
 
-    public task(String name, Date due) {
+    public Task(String name, Date due) {
         this.name = name;
         this.due = due;
     }

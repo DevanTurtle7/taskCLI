@@ -1,5 +1,10 @@
 package src;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
+import memory.memory;
+
 public class inputHandler {
     /**
      * Handles input entered by the user
@@ -14,6 +19,13 @@ public class inputHandler {
 
             if (command.equals("exit") || command.equals("quit")) {
                 _main.exitProgram(); // Exit the program
+            } else if (command.equals("save")) {
+                memory.writeMemory();
+            } else if (command.equals("c")) {
+                Date date = new Date(System.currentTimeMillis());
+                Task task = new Task("Test", date);
+                memory.addTask(task);
+                memory.writeMemory();
             }
         }
     }
