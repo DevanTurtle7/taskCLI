@@ -10,7 +10,6 @@ public class memoryManager {
 
     private static Task[] memory = new Task[100]; // An array where tasks are stored
     private static String filename = "memory/memory.csv";
-    private static boolean debugMode = false;
 
     /**
      * Saves all of the tasks in memory to memory.csv
@@ -69,8 +68,7 @@ public class memoryManager {
 
     }
 
-    public static void enableDebugMode() {
-        debugMode = true;
-        filename = "bruh/bruhMem.csv";
+    public static void enableDebugMode(String path) {
+        filename = path + "tests/testMemory.csv";
     }
 }
