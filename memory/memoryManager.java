@@ -38,42 +38,51 @@ public class memoryManager {
         }
     }
 
+    /**
+     * Loads the memory from memory.csv into the memory array
+     */
     public static void readMemory() {
         try {
-            FileReader fileReader = new FileReader(filename);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line = bufferedReader.readLine();
-            Arrays.fill(memory, null);
-            int memoryPointer = 0;
+            FileReader fileReader = new FileReader(filename); // Create a file reader
+            BufferedReader bufferedReader = new BufferedReader(fileReader); // Create a buffered reader
+            String line = bufferedReader.readLine(); // Get the first line (header)
+            Arrays.fill(memory, null); // Clear the memory array
+            int memoryPointer = 0; // Create a pointer
 
             line = bufferedReader.readLine(); // Move to the next line (skip the header)
-            while (line != null) {
-                String[] tokens = line.split(",");
-                String name = tokens[0];
-                String dateStr = tokens[1];
-                LocalDateTime date = LocalDateTime.parse(dateStr);
-                Task task = new Task(name, date);
+            while (line != null) { // Loop over every line in the file
+                String[] tokens = line.split(","); // Tokenize the line
+                String name = tokens[0]; // Get the task name
+                String dateStr = tokens[1]; // Get the task date
+                LocalDateTime date = LocalDateTime.parse(dateStr); // Convert the string to a date
+                Task task = new Task(name, date); // Create a task
 
-                if (memoryPointer < memory.length) {
-                    memory[memoryPointer] = task;
+                if (memoryPointer < memory.length) { // Make sure there is still space in the memory
+                    memory[memoryPointer] = task; // Store the task in memory
                 } else {
+                    // Print an error message and exit
                     System.out.println("Memory file exceeds memory size");
                     break;
                 }
 
-                line = bufferedReader.readLine();
+                line = bufferedReader.readLine(); // Read the next line
             }
 
+            // Close the readers
             bufferedReader.close();
             fileReader.close();
         } catch (IOException e) {
+            // Print an error message
             System.out.println("Error reading memory");
         }
     };
-
+    
+    /**
+     * Clears the memory
+     */
     public static void clearMemory() {
-        Arrays.fill(memory, null);
-        writeMemory();
+        Arrays.fill(memory, null); // Clear the memory array
+        writeMemory(); // Clear the memory file by writing the empty array to the file
     }
 
     /**
@@ -106,7 +115,12 @@ public class memoryManager {
 
     }
 
+    /**
+     * Changes the memory file path to a test file so that user data does not
+     * get overwritten
+     * @param path The absolute path to the taskCLI folder
+     */
     public static void enableDebugMode(String path) {
-        filename = path + "tests/testMemory.csv";
+        filename = path + "tests/testMemory.csv"; // Change the filename
     }
 }
