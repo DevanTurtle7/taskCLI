@@ -21,13 +21,11 @@ public class _main {
 
         while (!exit) { // Continue looping until the user exits the program
             System.out.print("taskCLI: "); // Print a command prompt
-            String input = inputScanner.nextLine();
-            System.out.println("The user entered: " + input);
-
-            inputHandler.handleInput(input);
+            String input = inputScanner.nextLine(); // Get the users inputer
+            inputHandler.handleInput(input); // Handle the users input
         }
 
-        inputScanner.close();
+        inputScanner.close(); // Close the scanner
     }
 
     /**
