@@ -15,7 +15,7 @@ import src.Task;
 
 @Testable
 public class MemoryTest {
-    String path = absolutePath.getPath();
+    String path = AbsolutePath.getPath();
 
     @Test
     public void testWriteMemory() {
