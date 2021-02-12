@@ -7,10 +7,10 @@
  * @author Devan Kavalchek
  */
 
-import src._main; // Import the main file
+import src.Main; // Import the main file
 
 public class taskCLI {
     public static void main(String[] args) {
-        _main.main(args); // Run the program
+        Main.main(args); // Run the program
     }
 }

@@ -10,18 +10,18 @@ import java.time.LocalDateTime;
 
 import org.junit.Test;
 import org.junit.platform.commons.annotation.Testable;
-import memory.memoryManager;
+import memory.MemoryManager;
 import src.Task;
 
 @Testable
-public class memoryTest {
+public class MemoryTest {
     String path = absolutePath.getPath();
 
     @Test
     public void testWriteMemory() {
         // Setup
-        memoryManager.enableDebugMode(path);
-        memoryManager.clearMemory();
+        MemoryManager.enableDebugMode(path);
+        MemoryManager.clearMemory();
 
         String name = "Task 1";
         LocalDateTime date = LocalDateTime.of(2020, 12, 3, 4, 5);
@@ -30,10 +30,10 @@ public class memoryTest {
         String expectedHeader = "Name,Date";
         String expectedLine = "Task 1,2020-12-03T04:05";
 
-        memoryManager.addTask(task);
+        MemoryManager.addTask(task);
 
         // Invoke
-        memoryManager.writeMemory();
+        MemoryManager.writeMemory();
 
         // Analyze
         try {
@@ -55,7 +55,7 @@ public class memoryTest {
     @Test
     public void testReadMemory() {
         // Setup
-        memoryManager.enableDebugMode(path);
+        MemoryManager.enableDebugMode(path);
         String name = "Task Name";
         LocalDateTime date = LocalDateTime.of(2002, 3, 18, 13, 45);
         Task expectedTask = new Task(name, date);
@@ -70,8 +70,8 @@ public class memoryTest {
         }
 
         // Invoke
-        memoryManager.readMemory();
-        Task task = memoryManager.memory[0];
+        MemoryManager.readMemory();
+        Task task = MemoryManager.memory[0];
 
         // Analyze
         assertEquals(expectedTask, task);

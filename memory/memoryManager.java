@@ -7,10 +7,10 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
-import src._main;
+import src.Main;
 import src.Task;
 
-public class memoryManager {
+public class MemoryManager {
 
     public static Task[] memory = new Task[100]; // An array where tasks are stored
     private static String filename = "memory/memory.csv";
@@ -34,7 +34,7 @@ public class memoryManager {
             // The memory.csv file cannot be read
             System.out.println("An error occurred");
             System.out.println(e);
-            _main.exitProgram();
+            Main.exitProgram();
         }
     }
 

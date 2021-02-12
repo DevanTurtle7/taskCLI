@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.junit.platform.commons.annotation.Testable;
 
 @Testable
-public class taskTest {
+public class TaskTest {
     @Test
     public void testCreateTask() {
         // Setup

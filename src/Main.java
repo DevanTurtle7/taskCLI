@@ -1,9 +1,9 @@
 package src;
 
 import java.util.Scanner;
-import memory.memoryManager;
+import memory.MemoryManager;
 
-public class _main {
+public class Main {
     private static boolean exit = false; // Tells the program when to end
 
     /**
@@ -12,7 +12,7 @@ public class _main {
      */
     public static void main(String args[]) {
         // Load data
-        memoryManager.readMemory();
+        MemoryManager.readMemory();
 
         // Print welcome message
 
@@ -22,7 +22,7 @@ public class _main {
         while (!exit) { // Continue looping until the user exits the program
             System.out.print("taskCLI: "); // Print a command prompt
             String input = inputScanner.nextLine(); // Get the users inputer
-            inputHandler.handleInput(input); // Handle the users input
+            InputHandler.handleInput(input); // Handle the users input
         }
 
         inputScanner.close(); // Close the scanner

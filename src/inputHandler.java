@@ -2,9 +2,9 @@ package src;
 
 import java.time.LocalDateTime;
 
-import memory.memoryManager;
+import memory.MemoryManager;
 
-public class inputHandler {
+public class InputHandler {
     /**
      * Handles input entered by the user
      * @param input The text entered by the user
@@ -17,14 +17,14 @@ public class inputHandler {
             String command = tokens[0].toLowerCase(); // Convert the command to lowercase so case doesn't matter
 
             if (command.equals("exit") || command.equals("quit")) {
-                _main.exitProgram(); // Exit the program
+                Main.exitProgram(); // Exit the program
             } else if (command.equals("save")) {
-                memoryManager.writeMemory();
+                MemoryManager.writeMemory();
             } else if (command.equals("c")) {
                 LocalDateTime date = LocalDateTime.now();
                 Task task = new Task("Test", date);
-                memoryManager.addTask(task);
-                memoryManager.writeMemory();
+                MemoryManager.addTask(task);
+                MemoryManager.writeMemory();
             }
         }
     }
